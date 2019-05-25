@@ -31,13 +31,20 @@ window.onload = function() {
 		var msg = JSON.parse(message.data)
 		
 		switch (msg.event) {
+		case 'NAME':
+			if (game.global.DEBUG_MODE) {
+				console.log('[DEBUG] NAME message recieved')
+				console.dir(msg)
+			}
+			game.global.myPlayer.id = msg.id
+			game.global.myPlayer.name = msg.name
+			break
 		case 'JOIN':
 			if (game.global.DEBUG_MODE) {
 				console.log('[DEBUG] JOIN message recieved')
 				console.dir(msg)
 			}
 			game.global.myPlayer.id = msg.id
-			game.global.myPlayer.name = msg.name
 			game.global.myPlayer.shipType = msg.shipType
 			
 			if (game.global.DEBUG_MODE) {

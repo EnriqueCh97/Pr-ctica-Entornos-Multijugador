@@ -40,6 +40,7 @@ Spacewar.gameState.prototype = {
 		game.global.myPlayer.image = game.add.sprite(0, 0, 'spacewar',
 				game.global.myPlayer.shipType)
 		game.global.myPlayer.image.anchor.setTo(0.5, 0.5)
+
 	},
 
 	create : function() {
@@ -66,9 +67,11 @@ Spacewar.gameState.prototype = {
 				Phaser.Keyboard.SPACEBAR ]);
 
 		game.camera.follow(game.global.myPlayer.image);
+		
 	},
 
 	update : function() {
+		
 		let msg = new Object()
 		msg.event = 'UPDATE MOVEMENT'
 
